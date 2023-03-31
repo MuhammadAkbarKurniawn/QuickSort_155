@@ -10,7 +10,7 @@ int n;
 
 void input() {
     while (true) {
-        cout << "Masukkan panjang element array : ";
+        cout << "Masukkan panjang element array: ";
         cin >> n;
 
         if (n <= 20)
@@ -61,9 +61,11 @@ void q_sort(int low, int high)
         }
         cmp_count++;
         // search for an element less than or equal to pivot
-        while ((arr[j] > pivot) && (j >= low)) // langkah 7
+        while ((arr[j] > pivot) && (j >= low)) 
+        { 
             j--; //langkah 8
             cmp_count++;
+        }
     }
     cmp_count++;
     if (i < j) // langkah 9
@@ -88,19 +90,25 @@ void q_sort(int low, int high)
 }
 
 void display() {
-    cout << "\n=============================" << endl;
+    cout << "\n===========================" << endl;
     cout << "\n Sorted Array"<< endl;
-    cout << "\n=============================" << endl;
+    cout << "\n===========================" << endl;
 
-    for (int i = 0; 1 < n; i++) {
+    for (int i = 0; i < n; i++) 
+    {
         cout << arr[i] << " ";
     }
-    cout << "\n\n Number of comparision " << cmp_count << endl;
-    cout << "\n\n Number of data movement " << mov_count << endl;
+    cout << "\n\n Number of comparision: " << cmp_count << endl;
+    cout << " Number of data movement: " << mov_count << endl;
 }
 
 
 int main()
 {
     input();
+    q_sort(0, n - 1);  // sort the array using quick sort
+    display();
+    system("pause");
+
+         return 0;
 }
